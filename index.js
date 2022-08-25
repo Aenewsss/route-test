@@ -8,4 +8,4 @@ app.get('/rapeize', (req, res) => {
     res.status(200).json({devJunior: ['Davi, Ale'], estag: 'Aenã'})
 })
 
-app.listen(8000 || proccess.env.PORT)
+app.listen(8000 || process.env.PORT)
