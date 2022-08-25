@@ -13,4 +13,4 @@ app.get('/rapeize', (req, res) => {
     res.status(200).json({devJunior: ['Davi, Ale'], estag: 'Aenã'})
 })
 
-app.listen(8000 || process.env.PORT)
+app.listen(process.env.PORT || 8000, () => console.log('Server at port 8000'))
