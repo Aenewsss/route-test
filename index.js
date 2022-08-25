@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.status(200).json({message: 'puta que pariu'})
+    res.send("<h1>Hello World!</h1>")
 })
 app.get('/rapeize', (req, res) => {
     res.status(200).json({devJunior: ['Davi, Ale'], estag: 'Aenã'})
