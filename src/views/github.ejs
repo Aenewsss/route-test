@@ -18,76 +18,41 @@
 
     <section class="container">
         <div class="row d-flex justify-content-center align-items-center">
-            <% if (github.length > 0) { %>
+            <% if (github.length> 0) { %>
                 <% github.forEach(git=> { %>
                     <div class="col-md-4 border-success rounded mt-4 ms-2 me-2 text-white bg-dark">
-                        <p>url</p>
                         <span>
-                            <%= git.url %>
-                        </span>
-                        <p>number</p>
-                        <span>
-                            <%= git.number %>
-                        </span>
-                        <p>state</p>
-                        <span>
-                            <%= git.state %>
-                        </span>
-                        <p>title</p>
-                        <span>
-                            <%= git.title %>
-                        </span>
-                        <p>user</p>
-                        <span>
-                            <%= git.user %>
-                        </span>
-                        <p>body</p>
-                        <span>
-                            <%= git.body %>
-                        </span>
-                        <p>created_at</p>
-                        <span>
-                            <%= git.created_at %>
-                        </span>
-                        <p>updated_at</p>
-                        <span>
-                            <%= git.updated_at %>
-                        </span>
-                        <p>branch_head</p>
-                        <span>
-                            <%= git.branch_head %>
-                        </span>
-                        <p>branch_base</p>
-                        <span>
-                            <%= git.branch_base %>
-                        </span>
-                        <p>commits</p>
-                        <span>
-                            <%= git.commits %>
-                        </span>
-                        <p>name</p>
-                        <span>
-                            <%= git.name %>
-                        </span>
-                        <p>user_repo</p>
-                        <span>
-                            <%= git.user_repo %>
-                        </span>
-                        <p>language</p>
-                        <span>
-                            <%= git.language %>
-                        </span>
-                        <p>default_branch</p>
-                        <span>
-                            <%= git.default_branch %>
-                        </span>
-                        <p>organization</p>
-                        <span>
-                            <%= git.organization %>
+                            Título: <%= git.title %>
+                            <br>
+                            Responsável pelo PR: <%= git.user %>
+                            <br>
+                            <a href="<%= git.url %>">Acessar PR</a>
+                            <br>
+                            Status: <%= git.state %>
+                            <br>
+                            Body do PR: <%= git.body %>
+                            <br>
+                            Repositório: <%= git.user_repo %>
+                            <br>
+                            Organização: <%= git.organization %>
+                            <br>
+                            Criado em: <%= git.created_at %>
+                            <br>
+                            Atualizado em: <%= git.updated_at %>
+                            <br>
+                            Branch : <%= git.branch_head %>
+                            <br>
+                            Branch : <%= git.branch_base %>
+                            <br>
+                            Nome: <%= git.name %>
+                            <br>
+                            Linguagem utilizada: <%= git.language %>
+                            <br>
+                            Número do PR: <%= git.number %>
                         </span>
                     </div>
-                <% }) %>
-            <% } %>
+                    <% }) %>
+                        <% } %>
         </div>
 
     </section>
