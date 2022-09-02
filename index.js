@@ -10,13 +10,13 @@ app.get('/', (req, res) => {
     res.send("<h1>Hello World!</h1>")
 })
 app.get('/rapeize', (req, res) => {
-    console.log(req.body.repository.name)
-    console.log(req.body.sender.login)
-    console.log(req.body.organization.login)
+  
     res.status(200).json({devJunior: ['Davi, Ale'], estag: 'Aenã'})
 })
 app.post('/rapeize', (req, res) => {
-    console.log(req)
+    console.log(req.body.repository.name)
+    console.log(req.body.sender.login)
+    console.log(req.body.organization.login)
     res.status(200).json({devJunior: ['Davi, Ale'], estag: 'Aenã'})
 })
 
