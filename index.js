@@ -12,26 +12,22 @@ app.get('/', (req, res) => {
     res.send('hello')
 })
 
-app.get('/rapeize', (req, res) => {
-    res.status(200).json({devJunior: ['Davi, Ale'], estag: 'Aenã'})
-})
-
-const git = []
+const github = []
 
 app.post('/rapeize', (req, res) => {
-    const [ url, number, state, title, body, created_at, updated_at ] = pull_request
+    const [ url, number, state, title, body, created_at, updated_at ] = req.body.pull_request
 
-    const user = pull_request.user.login
-    const branch_head = pull_request.head.ref
-    const branch_base = pull_request.base.ref
-    const commits = pull_request._links.commits
+    const user = req.body.pull_request.user.login
+    const branch_head = req.body.pull_request.head.ref
+    const branch_base = req.body.pull_request.base.ref
+    const commits = req.body.pull_request._links.commits
     
-    const [name, language, default_branch]  = repository.name
+    const [name, language, default_branch]  = req.body.repository.name
 
-    const user_repo = repository.owner.login
-    const organization = organization.login
+    const user_repo = req.body.repository.owner.login
+    const organization = req.body.organization.login
 
-    git.push({
+    github.push({
         url: url,
         number: number,
         state: state,
@@ -50,7 +46,9 @@ app.post('/rapeize', (req, res) => {
         organization: organization,
     })
 
-    res.render("github", {
+    console.log(github)
+
+    res.status(200).json({
         url: url,
         number: number,
         state: state,
@@ -68,6 +66,10 @@ app.post('/rapeize', (req, res) => {
         default_branch: default_branch,
         organization: organization,
     })
+})
+
+app.get('/rapeize', (req, res) => {
+    res.render("github", { github: github })
 })
 
 app.listen(process.env.PORT || 8000, () => console.log('Server at port 8000'))

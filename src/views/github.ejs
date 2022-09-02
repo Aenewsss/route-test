@@ -18,71 +18,71 @@
 
     <section class="container">
         <div class="row d-flex justify-content-center align-items-center">
-            <% git.forEach(git=> { %>
+            <% github.forEach(git=> { %>
                 <div class="col-md-4 border-success rounded mt-4 ms-2 me-2 text-white bg-dark">
                     <p>url</p>
                     <span>
-                        <%= url %>
+                        <%= git.url %>
                     </span>
                     <p>number</p>
                     <span>
-                        <%= number %>
+                        <%= git.number %>
                     </span>
                     <p>state</p>
                     <span>
-                        <%= state %>
+                        <%= git.state %>
                     </span>
                     <p>title</p>
                     <span>
-                        <%= title %>
+                        <%= git.title %>
                     </span>
                     <p>user</p>
                     <span>
-                        <%= user %>
+                        <%= git.user %>
                     </span>
                     <p>body</p>
                     <span>
-                        <%= body %>
+                        <%= git.body %>
                     </span>
                     <p>created_at</p>
                     <span>
-                        <%= created_at %>
+                        <%= git.created_at %>
                     </span>
                     <p>updated_at</p>
                     <span>
-                        <%= updated_at %>
+                        <%= git.updated_at %>
                     </span>
                     <p>branch_head</p>
                     <span>
-                        <%= branch_head %>
+                        <%= git.branch_head %>
                     </span>
                     <p>branch_base</p>
                     <span>
-                        <%= branch_base %>
+                        <%= git.branch_base %>
                     </span>
                     <p>commits</p>
                     <span>
-                        <%= commits %>
+                        <%= git.commits %>
                     </span>
                     <p>name</p>
                     <span>
-                        <%= name %>
+                        <%= git.name %>
                     </span>
                     <p>user_repo</p>
                     <span>
-                        <%= user_repo %>
+                        <%= git.user_repo %>
                     </span>
                     <p>language</p>
                     <span>
-                        <%= language %>
+                        <%= git.language %>
                     </span>
                     <p>default_branch</p>
                     <span>
-                        <%= default_branch %>
+                        <%= git.default_branch %>
                     </span>
                     <p>organization</p>
                     <span>
-                        <%= organization %>
+                        <%= git.organization %>
                     </span>
                 </div>
                 <% }) %>
