@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 const github = []
 
 app.post('/rapeize', (req, res) => {
+    console.log(req.body)
     const [ url, number, state, title, body, created_at, updated_at ] = req.body.pull_request
 
     const user = req.body.pull_request.user.login
