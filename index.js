@@ -5,33 +5,69 @@ const express = require('express')
 const app = express()
 
 app.use(express.json())
+app.set('view engine', 'ejs')
+app.set('views', 'src/views')
 
 app.get('/', (req, res) => {
-    res.send("<h1>Hello World!</h1>")
+    res.send('hello')
 })
+
 app.get('/rapeize', (req, res) => {
-  
     res.status(200).json({devJunior: ['Davi, Ale'], estag: 'Aenã'})
 })
+
+const git = []
+
 app.post('/rapeize', (req, res) => {
-    console.log(req.body.action)
-    console.log(req.body.pull_request.url)
-    console.log(req.body.pull_request.number)
-    console.log(req.body.pull_request.state)
-    console.log(req.body.pull_request.title)
-    console.log(req.body.pull_request.user.login)
-    console.log(req.body.pull_request.body)
-    console.log(req.body.pull_request.created_at)
-    console.log(req.body.pull_request.updated_at)
-    console.log(req.body.pull_request.head.ref)
-    console.log(req.body.pull_request.base.ref)
-    console.log(req.body.pull_request._links.commits)
-    console.log(req.body.repository.name)
-    console.log(req.body.repository.owner.login)
-    console.log(req.body.repository.language)
-    console.log(req.body.repository.default_branch)
-    console.log(req.body.organization.login)
-    res.status(200).json({devJunior: ['Davi, Ale'], estag: 'Aenã'})
+    const [ url, number, state, title, body, created_at, updated_at ] = pull_request
+
+    const user = pull_request.user.login
+    const branch_head = pull_request.head.ref
+    const branch_base = pull_request.base.ref
+    const commits = pull_request._links.commits
+    
+    const [name, language, default_branch]  = repository.name
+
+    const user_repo = repository.owner.login
+    const organization = organization.login
+
+    git.push({
+        url: url,
+        number: number,
+        state: state,
+        title: title,
+        user: user,
+        body: body,
+        created_at: created_at,
+        updated_at: updated_at,
+        branch_head: branch_head,
+        branch_base: branch_base,
+        commits: commits,
+        name: name,
+        user_repo: user_repo,
+        language: language,
+        default_branch: default_branch,
+        organization: organization,
+    })
+
+    res.render("github", {
+        url: url,
+        number: number,
+        state: state,
+        title: title,
+        user: user,
+        body: body,
+        created_at: created_at,
+        updated_at: updated_at,
+        branch_head: branch_head,
+        branch_base: branch_base,
+        commits: commits,
+        name: name,
+        user_repo: user_repo,
+        language: language,
+        default_branch: default_branch,
+        organization: organization,
+    })
 })
 
 app.listen(process.env.PORT || 8000, () => console.log('Server at port 8000'))
